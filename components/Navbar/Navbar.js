@@ -1,9 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ThemeModeToggle } from "../ui/Theme";
-import { Contact, Home, Info } from "lucide-react";
 
 const navItems = [
   {
@@ -14,27 +13,39 @@ const navItems = [
     name: "About",
     url: "/about",
   },
-  {
-    name: "Contact",
-    url: "/contact",
-  },
 ];
 const Navbar = () => {
   const [openNavbar, setOpenNavbar] = useState(false);
+  const [navbarBg, setNavbarBg] = useState("dark:bg-gray-900");
   const toggleNavbar = () => {
     setOpenNavbar((openNavbar) => !openNavbar);
   };
   const closeNavbar = () => {
     setOpenNavbar(false);
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 10) {
+        setNavbarBg("backdrop-blur-lg transition-all duration-300 ease-linear ");
+      } else {
+        setNavbarBg("dark:bg-gray-900");
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="bg-gradient-to-tr from-gray-100 to-gray-50">
+    <header className={`sticky top-0 z-50 ${navbarBg}`}>
       <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 py-4">
         <nav className="w-full flex justify-between gap-6 relative">
           <div className="min-w-max inline-flex relative">
             <Link href="/" className="relative flex items-center gap-3">
               <div className="inline-flex text-lg font-semibold text-gray-900 dark:text-white">
-                NEXT Blog
+                Emdadul&#39;s Blog
               </div>
             </Link>
           </div>
@@ -64,7 +75,7 @@ const Navbar = () => {
                   <li key={index}>
                     <Link
                       href={item.url}
-                      className="duration-300 font-medium ease-linear hover:text-blue-600 py-3"
+                      className="duration-300 font-medium ease-linear hover:text-primary py-3"
                     >
                       {item.name}
                     </Link>

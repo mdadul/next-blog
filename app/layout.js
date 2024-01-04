@@ -2,10 +2,11 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/Providers/ThemeProvider";
 import Navbar from "@/components/Navbar/Navbar";
+import Footer from "@/components/Footer/Footer";
 
 const roboto = Roboto({
   subsets: ["latin-ext"],
-  weight: ['100','300','500','700','900']
+  weight: ["100", "300", "500", "700", "900"],
 });
 
 export const metadata = {
@@ -24,7 +25,11 @@ export default function RootLayout({ children }) {
           disableTransitionOnChange
         >
           <Navbar />
-          {children}
+          <main className="bg-gray-50 dark:bg-gradient-to-t dark:from-slate-900 dark:to-gray-900">
+            {children}
+          </main>
+
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
