@@ -8,12 +8,6 @@ const nextConfig = {
         port: "",
         pathname: "/**",
       },
-      {
-        protocol: "https",
-        hostname: "mdadul-blog.vercel.app",
-        port: "",
-        pathname: "/**",
-      },
     ],
   },
 };

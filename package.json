@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "author": {
-    "name" : "Emdadul Islam",
-    "email" : "emdadulislam162@gmail.com"
+    "name": "Emdadul Islam",
+    "email": "emdadulislam162@gmail.com"
   },
   "scripts": {
     "dev": "next dev",
@@ -27,6 +27,7 @@
     "react": "^18",
     "react-dom": "^18",
     "remark-gfm": "^4.0.0",
+    "sharp": "^0.33.1",
     "tailwind-merge": "^2.2.0",
     "tailwindcss-animate": "^1.0.7"
   },

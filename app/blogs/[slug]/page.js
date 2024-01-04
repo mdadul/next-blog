@@ -32,6 +32,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
+
+
 export default function Blog({ params }) {
   const { slug } = params;
 
