@@ -17,18 +17,17 @@ export async function generateMetadata({ params }) {
   const blog = getBlog(slug);
 
   return {
+    metadataBase : new URL("https://mdadul-blog.vercel.app/"),
+    title: blog.frontMatter.title,
+    description: blog.frontMatter.description,
+    image: blog.frontMatter.cover,
+    type: "article",
+
     openGraph: {
       title: blog.frontMatter.title,
       description: blog.frontMatter.description,
       image: blog.frontMatter.cover,
       type: "article",
-    },
-    metadataBase: {
-      title: blog.frontMatter.title,
-      description: blog.frontMatter.description,
-      image: blog.frontMatter.cover,
-      type: "article",
-
     },
   };
 }

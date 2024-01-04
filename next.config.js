@@ -1,7 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["avatars.githubusercontent.com"],
+    remotePatterns: [
+      "https://mdadul-blog.vercel.app/**/*",
+      "https://avatars.githubusercontent.com/**/*",
+    ],
   },
 };
 
