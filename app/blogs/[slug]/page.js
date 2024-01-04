@@ -43,7 +43,7 @@ export default function Blog({ params }) {
 
   return (
     <section className="bg-white dark:bg-gray-950">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+      <div className="px-6 container py-4 max-w-5xl mx-auto">
         <h1 className="font-semibold text-5xl dark:text-white ">
           {blog.frontMatter.title}
         </h1>
@@ -71,7 +71,10 @@ export default function Blog({ params }) {
           className="rounded-lg border p-2 my-4 aspect-auto w-full"
         />
 
-        <div className="prose prose-lg text-gray-500 dark:text-gray-200 mx-auto">
+        <div
+          className="prose prose-pre:max-w-xs sm:prose-pre:max-w-full prose-sm sm:prose-base md:prose-lg
+       prose-h1:no-underline max-w-5xl mx-auto prose-stone dark:prose-invert prose-img:rounded-lg"
+        >
           <MDXRemote source={blog.content} options={options} />
         </div>
       </div>
