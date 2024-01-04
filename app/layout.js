@@ -10,8 +10,37 @@ const roboto = Roboto({
 });
 
 export const metadata = {
-  title: "Blog App - Next.js",
-  description: "A simple blog app built with Next.js",
+  openGraph: {
+    title: "Emdadul's Blog ",
+    description:
+      "A simple personal blog site built with Next.js and TailwindCSS",
+    url: "https://mdadul-blog.vercel.app/",
+    type: "website",
+    images: [
+      {
+        url: "/emdadul-islam.ico",
+        width: 32,
+        height: 32,
+        alt: "Emdadul's Blog",
+      },
+    ],
+  },
+
+  metadataBase: {
+    title: "Emdadul's Blog ",
+    description:
+      "A simple personal blog site built with Next.js and TailwindCSS",
+    url: "https://mdadul-blog.vercel.app/",
+    type: "website",
+    images: [
+      {
+        url: "/emdadul-islam.ico",
+        width: 32,
+        height: 32,
+        alt: "Emdadul's Blog",
+      },
+    ],
+  },
 };
 
 export default function RootLayout({ children }) {

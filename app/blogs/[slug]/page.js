@@ -17,11 +17,6 @@ export async function generateMetadata({ params }) {
   const blog = getBlog(slug);
 
   return {
-    title: blog.frontMatter.title,
-    description: blog.frontMatter.description,
-    image: blog.frontMatter.cover,
-    date: blog.frontMatter.date,
-    type: "article",
     openGraph: {
       title: blog.frontMatter.title,
       description: blog.frontMatter.description,
