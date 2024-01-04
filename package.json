@@ -1,7 +1,11 @@
 {
-  "name": "my-app",
+  "name": "next-blog",
   "version": "0.1.0",
   "private": true,
+  "author": {
+    "name" : "Emdadul Islam",
+    "email" : "emdadulislam162@gmail.com"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
