@@ -10,6 +10,21 @@ const roboto = Roboto({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://mdadul-blog.vercel.app/"),
+  title: "Emdadul's Blog ",
+  description:
+    "A simple personal blog site built with Next.js and TailwindCSS",
+  url: "https://mdadul-blog.vercel.app/",
+  type: "website",
+  images: [
+    {
+      url: "https://mdadul-blog.vercel.app/favicon.ico",
+      width: 32,
+      height: 32,
+      alt: "Emdadul's Blog",
+    },
+  ],
+
   openGraph: {
     title: "Emdadul's Blog ",
     description:
@@ -18,7 +33,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "/emdadul-islam.ico",
+        url: "https://mdadul-blog.vercel.app/favicon.ico",
         width: 32,
         height: 32,
         alt: "Emdadul's Blog",
@@ -26,21 +41,17 @@ export const metadata = {
     ],
   },
 
-  metadataBase: {
-    title: "Emdadul's Blog ",
-    description:
-      "A simple personal blog site built with Next.js and TailwindCSS",
-    url: "https://mdadul-blog.vercel.app/",
-    type: "website",
-    images: [
-      {
-        url: "/emdadul-islam.ico",
-        width: 32,
-        height: 32,
-        alt: "Emdadul's Blog",
-      },
-    ],
-  },
+  
+
+  keywords: [
+    "Emdadul's Blog",
+    "Emdadul Islam",
+    "Emdadul",
+    "next js blog template",
+    "blog template",
+    "personal blog site",
+    "tailwind blog template",
+  ],
 };
 
 export default function RootLayout({ children }) {

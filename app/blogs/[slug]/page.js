@@ -28,6 +28,7 @@ export async function generateMetadata({ params }) {
       description: blog.frontMatter.description,
       image: blog.frontMatter.cover,
       type: "article",
+
     },
   };
 }
