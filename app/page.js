@@ -1,3 +1,4 @@
+import BlogSection from "@/components/Blogs/Blogs";
 import Navbar from "@/components/Navbar/Navbar";
 import getAllBlogs from "@/lib/getAllBlogs";
 
@@ -9,16 +10,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-
-      <div className="flex flex-col ">
-        {blogs.map((blog, index) => (
-          <Link href={`/blogs/${blog.slug}`} key={index}>
-            {blog.data.title}
-            <br />
-            {blog.data.description}
-          </Link>
-        ))}
-      </div>
+      <BlogSection blogs={blogs}/>
     </>
   );
 }

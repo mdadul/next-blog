@@ -28,8 +28,8 @@ const Navbar = () => {
     setOpenNavbar(false);
   };
   return (
-   
-      <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5">
+    <header className="bg-gradient-to-tr from-gray-100 to-gray-50">
+      <div className="mx-auto lg:max-w-7xl w-full px-5 sm:px-10 md:px-12 lg:px-5 py-4">
         <nav className="w-full flex justify-between gap-6 relative">
           <div className="min-w-max inline-flex relative">
             <Link href="/" className="relative flex items-center gap-3">
@@ -104,6 +104,7 @@ const Navbar = () => {
           </div>
         </nav>
       </div>
+    </header>
   );
 };
 
