@@ -2,8 +2,18 @@
 const nextConfig = {
   images: {
     remotePatterns: [
-      "https://mdadul-blog.vercel.app/**/*",
-      "https://avatars.githubusercontent.com/**/*",
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "mdadul-blog.vercel.app",
+        port: "",
+        pathname: "/**",
+      },
     ],
   },
 };
