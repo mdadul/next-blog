@@ -4,10 +4,10 @@ import Link from "next/link";
 const BlogCard = ({ blogPost, slug }) => {
   return (
     <div className="bg-white dark:bg-gray-950 border border-gray-100 dark:border-gray-900 px-px rounded-xl">
-      <div className="rounded-[11px] bg-gray-200 dark:bg-gray-800 relative">
+      <div className="rounded-[11px] bg-gray-100 dark:bg-gray-800 relative">
         <Image
           src={blogPost?.cover}
-          alt="article cover"
+          alt={blogPost?.title}
           width={1400}
           height={800}
           className="rounded-[7px] w-full aspect-video object-cover"
