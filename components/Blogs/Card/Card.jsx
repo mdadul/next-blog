@@ -10,7 +10,7 @@ const BlogCard = ({ blogPost, slug }) => {
           alt={blogPost?.title}
           width={1400}
           height={800}
-          className="rounded-[7px] w-full aspect-video object-cover"
+          className="rounded-[7px] w-full aspect-video object-cover hover:scale-95 transition-all duration-500 ease-in-out"
         />
         <div className="absolute -bottom-8 z-10 flex inset-x-2 rounded-lg bg-gray-100 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 p-2">
           <div className="flex items-center gap-x-4">

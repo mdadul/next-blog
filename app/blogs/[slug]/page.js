@@ -60,7 +60,7 @@ export default async function Blog({ params }) {
 
   return (
     <div className="px-6 container py-8 max-w-5xl mx-auto">
-      <h1 className="font-semibold text-5xl font-serif my-2 dark:text-white ">
+      <h1 className="font-semibold text-5xl my-2 dark:text-white ">
         {blog?.frontMatter?.title}
       </h1>
       <div className="flex justify-between my-5">
