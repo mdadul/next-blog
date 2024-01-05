@@ -1,6 +1,6 @@
 import getAllBlogs from "@/lib/getAllBlogs";
 import getBlog from "@/lib/getBlog";
-import { Calendar } from "lucide-react";
+import { Calendar, Group, Tag } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
 import rehypeHighlight from "rehype-highlight";
@@ -60,17 +60,9 @@ export default async function Blog({ params }) {
 
   return (
     <div className="px-6 container py-8 max-w-5xl mx-auto">
-      <h1 className="font-semibold text-5xl dark:text-white ">
+      <h1 className="font-semibold text-5xl font-serif my-2 dark:text-white ">
         {blog?.frontMatter?.title}
       </h1>
-
-      <Image
-        src={blog?.frontMatter?.cover}
-        alt={blog?.frontMatter?.title}
-        width={800}
-        height={400}
-        className="rounded-lg border p-2 my-4 aspect-auto w-full"
-      />
       <div className="flex justify-between my-5">
         <div className="flex gap-2 items-center">
           <Image
@@ -91,17 +83,28 @@ export default async function Blog({ params }) {
       </div>
 
       {blog?.frontMatter?.categories && (
-        <div className="flex gap-2 my-5">
-          {blog?.frontMatter?.categories.map((category) => (
-            <div
-              key={category}
-              className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-lg"
-            >
-              {category}
-            </div>
-          ))}
+        <div className="flex gap-2 items-center">
+          <Group />
+          <div className="flex gap-2">
+            {blog?.frontMatter?.categories.map((category) => (
+              <div
+                key={category}
+                className="bg-gray-200 text-sm dark:bg-gray-800 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-md"
+              >
+                {category}
+              </div>
+            ))}
+          </div>
         </div>
       )}
+
+      <Image
+        src={blog?.frontMatter?.cover}
+        alt={blog?.frontMatter?.title}
+        width={800}
+        height={400}
+        className="rounded-lg border p-2 my-4 aspect-auto w-full"
+      />
 
       <hr className="my-5 shadow-sm " />
 
@@ -109,15 +112,19 @@ export default async function Blog({ params }) {
         <MDXRemote source={blog?.content} options={options} />
 
         {blog?.frontMatter?.tags && (
-          <div className="flex gap-2 my-5">
-            {blog?.frontMatter?.tags.map((tag) => (
-              <div
-                key={tag}
-                className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-lg"
-              >
-                {tag}
-              </div>
-            ))}
+          <div className="flex gap-2 items-center">
+            {" "}
+            <Tag className="inline-flex gap-2 items-center" />
+            <div className="flex gap-2 my-5">
+              {blog?.frontMatter?.tags.map((tag) => (
+                <div
+                  key={tag}
+                  className="bg-gray-200 text-sm dark:bg-gray-800 text-gray-800 dark:text-gray-200 px-3 py-1 rounded-lg"
+                >
+                  {tag}
+                </div>
+              ))}
+            </div>
           </div>
         )}
       </div>
