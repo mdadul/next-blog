@@ -3,7 +3,7 @@ import getAllBlogs from "@/lib/getAllBlogs";
 export async function generateSitemaps() {
   const blogs = await getAllBlogs();
   return blogs.map((blog) => ({
-    url: `https://mdadul-blog.vercel.app/blog/${blog.slug}`,
+    url: `https://mdadul-blog.vercel.app/blogs/${blog.slug}`,
     lastModified: new Date(),
     changeFrequency: "weekly",
     priority: 0.5,
