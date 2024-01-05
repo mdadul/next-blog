@@ -1,28 +1,24 @@
 import getAllBlogs from "@/lib/getAllBlogs";
 
-export async function generateSitemaps() {
-  const blogs = await getAllBlogs();
-  return blogs.map((blog) => ({
-    url: `https://mdadul-blog.vercel.app/blogs/${blog.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority: 0.5,
-  }));
-}
+export default  async function sitemap() {
 
-export default function sitemap() {
-  return [
-    {
-      url: "https://mdadul-blog.vercel.app",
-      lastModified: new Date(),
-      changeFrequency: "yearly",
-      priority: 1,
-    },
-    {
-      url: "https://mdadul-blog.vercel.app/about",
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-  ];
+    const blogs =await getAllBlogs();
+
+    const staticPages = [
+        { url : 'https://mdadul-blog.vercel.app/', lastModified : new Date().toISOString(), changeFrequency : 'weekly', priority : 1 },
+        { url : 'https://mdadul-blog.vercel.app/blogs', lastModified : new Date().toISOString(), changeFrequency : 'weekly', priority : 0.9 },
+        { url : 'https://mdadul-blog.vercel.app/about', lastModified : new Date().toISOString(), changeFrequency : 'weekly', priority : 0.9 },
+        { url : 'https://mdadul-blog.vercel.app/contact', lastModified : new Date().toISOString(), changeFrequency : 'weekly', priority : 0.9 },
+    ];
+
+    const dynamicPages =  blogs.map((blog) => ({
+        url : `https://mdadul-blog.vercel.app/blogs/${blog.slug}`,
+        lastModified : new Date(blog.frontMatter.date).toISOString(),
+        changeFrequency : 'weekly',
+        priority : 0.7
+    }));
+
+    const pages = [...staticPages, ...dynamicPages];
+
+    return pages
 }
