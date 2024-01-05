@@ -8,7 +8,7 @@ import remarkGfm from "remark-gfm";
 import langHttp from "highlight.js/lib/languages/http";
 import langNginx from "highlight.js/lib/languages/nginx";
 
-import "@/styles/code.css"
+import "@/styles/code.css";
 
 const options = {
   mdxOptions: {
@@ -89,10 +89,36 @@ export default async function Blog({ params }) {
         </p>
       </div>
 
+      {blog?.frontMatter?.categories && (
+        <div className="flex gap-2 my-5">
+          {blog?.frontMatter?.categories.map((category) => (
+            <div
+              key={category}
+              className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-lg"
+            >
+              {category}
+            </div>
+          ))}
+        </div>
+      )}
+
       <hr className="my-5 shadow-sm " />
 
       <div className="prose prose-pre:max-w-xs sm:prose-pre:max-w-full prose-base max-w-5xl mx-auto prose-stone dark:prose-invert prose-img:rounded-lg prose-img:aspect-video">
         <MDXRemote source={blog?.content} options={options} />
+
+        {blog?.frontMatter?.tags && (
+          <div className="flex gap-2 my-5">
+            {blog?.frontMatter?.tags.map((tag) => (
+              <div
+                key={tag}
+                className="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-3 py-1 rounded-lg"
+              >
+                {tag}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
