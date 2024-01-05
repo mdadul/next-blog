@@ -3,12 +3,20 @@ import getBlog from "@/lib/getBlog";
 import { Calendar } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
+import rehypeHighlight from "rehype-highlight";
 import remarkGfm from "remark-gfm";
+import langHttp from "highlight.js/lib/languages/http";
+import langNginx from "highlight.js/lib/languages/nginx";
+
+import "@/styles/code.css"
 
 const options = {
   mdxOptions: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [],
+    rehypePlugins: [
+      rehypeHighlight,
+      { languages: { http: langHttp, nginx: langNginx } },
+    ],
   },
 };
 
@@ -44,6 +52,10 @@ export default async function Blog({ params }) {
   const { slug } = params;
 
   const blog = await getBlog(slug);
+
+  if (!blog) {
+    return <div>Blog not found</div>;
+  }
 
   return (
     <div className="px-6 container py-8 max-w-5xl mx-auto">
