@@ -9,6 +9,7 @@ import langHttp from "highlight.js/lib/languages/http";
 import langNginx from "highlight.js/lib/languages/nginx";
 
 import "@/styles/code.css";
+import { notFound } from "next/navigation";
 
 const options = {
   mdxOptions: {
@@ -54,7 +55,7 @@ export default async function Blog({ params }) {
   const blog = await getBlog(slug);
 
   if (!blog) {
-    return <div>Blog not found</div>;
+    return notFound();
   }
 
   return (
