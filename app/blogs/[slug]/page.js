@@ -14,10 +14,10 @@ const options = {
 
 export async function generateMetadata({ params }) {
   const { slug } = params;
-  const blog = getBlog(slug);
+  const blog = await getBlog(slug);
 
   return {
-    metadataBase : new URL("https://mdadul-blog.vercel.app/"),
+    metadataBase: new URL("https://mdadul-blog.vercel.app/"),
     title: blog.frontMatter.title,
     description: blog.frontMatter.description,
     image: blog.frontMatter.cover,
@@ -32,12 +32,10 @@ export async function generateMetadata({ params }) {
   };
 }
 
-
-
-export default function Blog({ params }) {
+export default async function Blog({ params }) {
   const { slug } = params;
 
-  const blog = getBlog(slug);
+  const blog = await getBlog(slug);
 
   return (
     <div className="px-6 container py-8 max-w-5xl mx-auto">
