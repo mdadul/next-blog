@@ -13,7 +13,7 @@ export default  async function sitemap() {
 
     const dynamicPages =  blogs.map((blog) => ({
         url : `https://mdadul-blog.vercel.app/blogs/${blog.slug}`,
-        lastModified : new Date(blog.frontMatter.date).toISOString(),
+        lastModified : new Date().toISOString(),
         changeFrequency : 'weekly',
         priority : 0.7
     }));
