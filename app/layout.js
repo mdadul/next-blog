@@ -1,19 +1,18 @@
-import { Roboto } from "next/font/google";
+import { Domine } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/Providers/ThemeProvider";
 import Navbar from "@/components/Navbar/Navbar";
 import Footer from "@/components/Footer/Footer";
 
-const roboto = Roboto({
+const domine = Domine({
   subsets: ["latin-ext"],
-  weight: ["100", "300", "500", "700", "900"],
+  weight: ["400","500","600" ,"700"],
 });
 
 export const metadata = {
   metadataBase: new URL("https://mdadul-blog.vercel.app/"),
   title: "Emdadul's Blog ",
-  description:
-    "A simple personal blog site built with Next.js and TailwindCSS",
+  description: "A simple personal blog site built with Next.js and TailwindCSS",
   url: "https://mdadul-blog.vercel.app/",
   type: "website",
   images: [
@@ -41,8 +40,6 @@ export const metadata = {
     ],
   },
 
-  
-
   keywords: [
     "Emdadul's Blog",
     "Emdadul Islam",
@@ -57,7 +54,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${roboto.className} `}>
+      <body className={`${domine.className} `}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
