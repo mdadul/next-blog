@@ -1,8 +1,8 @@
+import getAllBlogs from "@/lib/getAllBlogs";
 import getBlog from "@/lib/getBlog";
 import { Calendar } from "lucide-react";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Image from "next/image";
-import Link from "next/link";
 import remarkGfm from "remark-gfm";
 
 const options = {
@@ -30,6 +30,14 @@ export async function generateMetadata({ params }) {
       type: "article",
     },
   };
+}
+
+export async function generateStaticParams() {
+  const blogs = await getAllBlogs();
+
+  return blogs.map((blog) => ({
+    slug: blog.slug,
+  }));
 }
 
 export default async function Blog({ params }) {
