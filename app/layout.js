@@ -32,7 +32,7 @@ export const metadata = {
     type: "website",
     images: [
       {
-        url: "https://mdadul-blog.vercel.app/favicon.ico",
+        url: "https://mdadul-blog.vercel.app/Emdadul-Islam.png",
         width: 32,
         height: 32,
         alt: "Emdadul's Blog",
