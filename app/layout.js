@@ -6,10 +6,11 @@ import Footer from "@/components/Footer/Footer";
 
 const domine = Domine({
   subsets: ["latin-ext"],
-  weight: ["400","500","600" ,"700"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
+
   metadataBase: new URL("https://mdadul-blog.vercel.app/"),
   title: "Emdadul's Blog ",
   description: "A simple personal blog site built with Next.js and TailwindCSS",
@@ -49,7 +50,30 @@ export const metadata = {
     "personal blog site",
     "tailwind blog template",
   ],
+  icons: [
+    {
+      rel: "icon",
+      url: "/favicon.ico",
+      sizes: "32x32",
+    },
+    {
+      rel: "apple-touch-icon",
+      url: "/favicon.ico",
+      sizes: "32x32",
+    },
+  ],
 };
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  minimumScale: 1,
+  shirnkToFit: "no",
+  userScalable: "no",
+  themeColor: "#ffffff",
+
+}
 
 export default function RootLayout({ children }) {
   return (
