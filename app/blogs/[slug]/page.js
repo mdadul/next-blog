@@ -10,6 +10,7 @@ import langNginx from "highlight.js/lib/languages/nginx";
 
 import "@/styles/code.css";
 import { notFound } from "next/navigation";
+import Youtube from "@/components/Youtube";
 
 const options = {
   mdxOptions: {
@@ -109,7 +110,9 @@ export default async function Blog({ params }) {
       <hr className="my-5 shadow-sm " />
 
       <div className="prose prose-pre:max-w-xs sm:prose-pre:max-w-full prose-base max-w-5xl mx-auto prose-stone dark:prose-invert prose-img:rounded-lg prose-img:aspect-video">
-        <MDXRemote source={blog?.content} options={options} />
+        <MDXRemote source={blog?.content} options={options} 
+        components={{Youtube}}
+        />
 
         {blog?.frontMatter?.tags && (
           <div className="flex gap-2 items-center">
