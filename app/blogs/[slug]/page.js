@@ -11,6 +11,7 @@ import langNginx from "highlight.js/lib/languages/nginx";
 import "@/styles/code.css";
 import { notFound } from "next/navigation";
 import Youtube from "@/components/Youtube";
+import SharePost from "@/components/SocialShare/SocialShare";
 
 const options = {
   mdxOptions: {
@@ -36,8 +37,16 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: blog?.frontMatter?.title,
       description: blog?.frontMatter?.description,
-      image: blog?.frontMatter?.cover,
-      type: "article",
+      url: `https://mdadul-blog.vercel.app/blogs/${blog?.slug}`,
+      type: "website",
+      images: [
+        {
+          url: blog?.frontMatter?.cover,
+          width: 32,
+          height: 32,
+          alt: blog?.frontMatter?.title,
+        },
+      ],
     },
   };
 }
@@ -58,7 +67,7 @@ export default async function Blog({ params }) {
   if (!blog) {
     return notFound();
   }
-
+  
   return (
     <div className="px-6 container py-8 max-w-5xl mx-auto">
       <h1 className="font-semibold text-5xl my-2 dark:text-white ">
@@ -110,8 +119,10 @@ export default async function Blog({ params }) {
       <hr className="my-5 shadow-sm " />
 
       <div className="prose prose-pre:max-w-xs sm:prose-pre:max-w-full prose-base max-w-5xl mx-auto prose-stone dark:prose-invert prose-img:rounded-lg prose-img:aspect-video">
-        <MDXRemote source={blog?.content} options={options} 
-        components={{Youtube}}
+        <MDXRemote
+          source={blog?.content}
+          options={options}
+          components={{ Youtube }}
         />
 
         {blog?.frontMatter?.tags && (
@@ -131,6 +142,12 @@ export default async function Blog({ params }) {
           </div>
         )}
       </div>
+
+      <hr className="my-5 shadow-sm " />
+
+      <SharePost
+        postUrl={`https://mdadul-blog.vercel.app/blogs/${blog?.slug}`}
+      />
     </div>
   );
 }
