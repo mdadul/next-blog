@@ -19,17 +19,16 @@ This is my personal blog. I write about things I learn, things I do, and things 
 - [x] Responsive
 - [x] SEO friendly
 - [x] Markdown support
-- [ ] Code syntax highlighting
-- [ ] Tags
+- [X] Code syntax highlighting
+- [X] Tags
 - [ ] Pagination
 - [ ] Search
-- [ ] RSS Feed
-- [ ] Sitemap
+- [X] Sitemap
 - [ ] Google Analytics
 - [ ] Comment
-- [ ] Share on social media
+- [X] Share on social media
 - [ ] Lighthouse score 100
-- [ ] PWA
+- [X] PWA
 - [ ] Offline Support
 - [ ] Web Push Notification
 
