@@ -25,6 +25,8 @@ export const metadata = {
     },
   ],
 
+  manifest : '/manifest.json',
+
   openGraph: {
     title: "Emdadul's Blog ",
     description:
