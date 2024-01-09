@@ -13,10 +13,10 @@ const navItems = [
     name: "Blogs",
     url: "/blogs",
   },
-  {
-    name: "About",
-    url: "/about",
-  },
+  // {
+  //   name: "About",
+  //   url: "/about",
+  // },
 ];
 const Navbar = () => {
   const [openNavbar, setOpenNavbar] = useState(false);
