@@ -10,7 +10,6 @@ const domine = Domine({
 });
 
 export const metadata = {
-
   metadataBase: new URL("https://mdadul-blog.vercel.app/"),
   title: "Emdadul's Blog ",
   description: "A simple personal blog site built with Next.js and TailwindCSS",
@@ -25,7 +24,7 @@ export const metadata = {
     },
   ],
 
-  manifest : '/manifest.json',
+  manifest: "/manifest.json",
 
   openGraph: {
     title: "Emdadul's Blog ",
@@ -74,8 +73,7 @@ export const viewport = {
   shirnkToFit: "no",
   userScalable: "no",
   themeColor: "#ffffff",
-
-}
+};
 
 export default function RootLayout({ children }) {
   return (

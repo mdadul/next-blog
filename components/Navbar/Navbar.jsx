@@ -10,6 +10,10 @@ const navItems = [
     url: "/",
   },
   {
+    name: "Blogs",
+    url: "/blogs",
+  },
+  {
     name: "About",
     url: "/about",
   },
@@ -27,7 +31,9 @@ const Navbar = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
-        setNavbarBg("backdrop-blur-lg transition-all duration-300 ease-linear ");
+        setNavbarBg(
+          "backdrop-blur-lg transition-all duration-300 ease-linear "
+        );
       } else {
         setNavbarBg("dark:bg-gray-900");
       }
